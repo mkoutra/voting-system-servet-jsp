@@ -1,8 +1,4 @@
 .idea/
-my_notes.txt
-TODO.txt
-database/
-CHANGES.txt
 
 target/
 !.mvn/wrapper/maven-wrapper.jar

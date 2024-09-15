@@ -1,24 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<%--
+    @author: Michail E. Koutrakis
+--%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Voting System</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../css/index.css">
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/index.css">
 </head>
-
-<body class="d-flex flex-column min-vh-100">
+<body>
     <header>
         <nav class="navbar navbar-expand-sm">
             <div class="container-sm">
                 <a class="navbar-brand" href=""><span class="display-4">Voting System</span></a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -26,8 +25,8 @@
                     <ul class="navbar-nav mb-2 mb-lg-0">
                         <li class="nav-item dropdown fs-4">
                             <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                <img class="" src="../img/userIcon_x_small.png" alt="Username logo">
+                               aria-expanded="false">
+                                <img class="" src="${pageContext.request.contextPath}/img/userIcon_x_small.png" alt="Username logo">
                                 <span>Username</span>
                             </a>
                             <ul class="dropdown-menu">
@@ -41,26 +40,8 @@
         </nav>
     </header>
 
-    <main>
-        <div class="main d-flex flex-column justify-content-center align-items-center">
-            <h1 class="text-center">Welcome to voting system application.</h1>
-
-            <div class="mt-4">
-                <a type="button" class="btn btn-success btn-lg" href="./login.html">Enter</a>
-            </div>
-        </div>
-    </main>
-
-    <footer class="mt-auto">
-        <hr>
-        <div class="text-center">
-            <span class="fs-5">&copy; Michalis Koutrakis 2024</span>
-        </div>
-    </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
 </body>
-
 </html>
