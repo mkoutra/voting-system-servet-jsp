@@ -6,8 +6,8 @@ import personal.votingsystem.dao.ICandidateDAO;
 import personal.votingsystem.dao.IUserDAO;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
 import personal.votingsystem.dao.exceptions.UserDAOException;
-import personal.votingsystem.dto.CandidateReadOnlyDTO;
-import personal.votingsystem.dto.ChangePasswordDTO;
+import personal.votingsystem.dto.old.CandidateReadOnlyDTO;
+import personal.votingsystem.dto.old.ChangePasswordDTO;
 import personal.votingsystem.dto.UserInsertDTO;
 import personal.votingsystem.dto.UserReadOnlyDTO;
 import personal.votingsystem.model.User;
@@ -31,9 +31,10 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void insertUser(UserInsertDTO dto) throws UserDAOException {
+    public User insertUser(UserInsertDTO dto) throws UserDAOException {
         User user = mapUserInsertDTOToUser(dto);
         userDAO.insert(user);
+        return user;
     }
 
     @Override

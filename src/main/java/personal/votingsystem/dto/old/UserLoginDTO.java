@@ -1,4 +1,4 @@
-package personal.votingsystem.dto;
+package personal.votingsystem.dto.old;
 
 /**
  * Data Transfer Object (DTO) used for transferring user login credentials

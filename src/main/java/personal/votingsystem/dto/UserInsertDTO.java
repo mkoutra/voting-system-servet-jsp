@@ -3,8 +3,8 @@ package personal.votingsystem.dto;
 import java.util.Date;
 
 /**
- * Data Transfer Object (DTO) used for transferring data required to create a new user
- * from the view layer to the service layer.
+ * Data Transfer Object (DTO) used for transferring data required
+ * to create a new user from the view layer to the service layer.
  *
  * @author Michail E. Koutrakis
  */

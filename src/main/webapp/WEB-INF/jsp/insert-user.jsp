@@ -24,21 +24,23 @@
             <h1 class="display-5">Create an Account</h1>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="${pageContext.request.contextPath}/users/register">
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputUsername" class="col-form-label fs-5">Username</label>
                     <a href="" data-bs-toggle="tooltip"
                        data-bs-title="3-45 latin characters, dots and underscores."><i
                             class="bi bi-info-circle"></i></a>
-                    <input type="text" class="form-control rounded-4" id="inputUsername" required>
+                    <input type="text" class="form-control rounded-4" id="inputUsername" name="username" value="${requestScope.userInsertDTO.username}" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.usernameErrorMessage}</span>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputEmail" class="col-form-label fs-5">E-mail</label>
-                    <input type="email" class="form-control rounded-4" id="inputEmail" required>
+                    <input type="email" class="form-control rounded-4" id="inputEmail" name="email" value="${requestScope.userInsertDTO.email}" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.emailErrorMessage}</span>
                 </div>
             </div>
 
@@ -47,7 +49,8 @@
                     <label for="inputFirstname" class="col-form-label fs-5">First name</label>
                     <a href="" data-bs-toggle="tooltip" data-bs-title="No spaces allowed."><i
                             class="bi bi-info-circle"></i></a>
-                    <input type="text" class="form-control rounded-4" id="inputFirstname" required>
+                    <input type="text" class="form-control rounded-4" id="inputFirstname" name="firstname" value="${requestScope.userInsertDTO.firstname}" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.firstnameErrorMessage}</span>
                 </div>
             </div>
 
@@ -56,14 +59,16 @@
                     <label for="inputLastname" class="col-form-label fs-5">Last name</label>
                     <a href="" data-bs-toggle="tooltip" data-bs-title="No spaces allowed."><i
                             class="bi bi-info-circle"></i></a>
-                    <input type="text" class="form-control rounded-4" id="inputLastname" required>
+                    <input type="text" class="form-control rounded-4" id="inputLastname" name="lastname" value="${requestScope.userInsertDTO.lastname}" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.lastnameErrorMessage}</span>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputDateOfBirth" class="col-form-label fs-5">Date of Birth</label>
-                    <input type="date" class="form-control rounded-4" id="inputDateOfBirth" required>
+                    <input type="date" class="form-control rounded-4" id="inputDateOfBirth" name="dateOfBirth" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.dateOfBirthErrorMessage}</span>
                 </div>
             </div>
 
@@ -73,14 +78,16 @@
                     <a href="" data-bs-toggle="tooltip"
                        data-bs-title="8-20 characters, including at least 1 lowercase letter, 1 uppercase letter, 1 digit, and 1 special character (#?!@$%^&*-)."><i
                             class="bi bi-info-circle"></i></a>
-                    <input type="password" class="form-control rounded-4" id="inputPassword" required>
+                    <input type="password" class="form-control rounded-4" id="inputPassword" name="password" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.passwordErrorMessage}</span>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputConfirmPassword" class="col-form-label fs-5">Re-Enter Password</label>
-                    <input type="password" class="form-control rounded-4" id="inputConfirmPassword" required>
+                    <input type="password" class="form-control rounded-4" id="inputConfirmPassword" name="reEnteredPassword" required>
+                    <span class="text-danger">${requestScope.userInsertErrorsDTO.reEnteredPasswordErrorMessage}</span>
                 </div>
             </div>
 

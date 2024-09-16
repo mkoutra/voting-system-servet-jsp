@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voting</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/success.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
@@ -26,7 +25,7 @@
                 <span>Username:</span>
             </div>
             <div class="col-6 justify-content-start">
-                <span>Username</span>
+                <span>${requestScope.userReadOnlyDTO.username}</span>
             </div>
         </div>
 
@@ -35,7 +34,7 @@
                 <span>First Name:</span>
             </div>
             <div class="col-6 justify-content-start">
-                <span>First Name</span>
+                <span>${requestScope.userReadOnlyDTO.firstname}</span>
             </div>
         </div>
 
@@ -44,13 +43,13 @@
                 <span>Last Name:</span>
             </div>
             <div class="col-6 justify-content-start">
-                <span>Last Name</span>
+                <span>${requestScope.userReadOnlyDTO.lastname}</span>
             </div>
         </div>
     </div>
 
     <div class="text-center">
-        <a href="" class="btn btn-primary">Return</a>
+        <a href="${pageContext.request.contextPath}/login" class="btn btn-primary">Back to login page</a>
     </div>
 </main>
 

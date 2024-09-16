@@ -2,8 +2,8 @@ package personal.votingsystem.service;
 
 import personal.votingsystem.dao.exceptions.UserDAOException;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
-import personal.votingsystem.dto.CandidateReadOnlyDTO;
-import personal.votingsystem.dto.ChangePasswordDTO;
+import personal.votingsystem.dto.old.CandidateReadOnlyDTO;
+import personal.votingsystem.dto.old.ChangePasswordDTO;
 import personal.votingsystem.dto.UserReadOnlyDTO;
 import personal.votingsystem.service.exceptions.UserNotFoundException;
 import personal.votingsystem.service.exceptions.CandidateNotFoundException;
@@ -24,9 +24,10 @@ public interface IUserService {
      * Inserts a new user into the system.
      *
      * @param dto The {@link UserInsertDTO} containing the user's registration details.
+     * @return the inserted {@link User}.
      * @throws UserDAOException If an error occurs during the database operation.
      */
-    void insertUser(UserInsertDTO dto) throws UserDAOException;
+    User insertUser(UserInsertDTO dto) throws UserDAOException;
 
     /**
      * Registers a vote for a specific candidate by a user.

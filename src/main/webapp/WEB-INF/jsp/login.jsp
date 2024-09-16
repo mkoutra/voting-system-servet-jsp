@@ -1,4 +1,5 @@
-<%@page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +19,7 @@
         <div class="row text-center">
             <h1 class="display-3">Login</h1>
             <div class="text-center">
-                <span class="fs-4 text-danger">Invalid credentials.</span>
+                <span class="fs-4 text-danger">${requestScope.loginErrorMessage}</span>
             </div>
         </div>
 
@@ -26,14 +27,14 @@
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputUsername" class="col-form-label fs-5">Username</label>
-                    <input type="text" class="form-control rounded-4" id="inputUsername" required>
+                    <input type="text" class="form-control rounded-4" id="inputUsername" name="username" required>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputPassword" class="col-form-label fs-5">Password</label>
-                    <input type="password" class="form-control rounded-4" id="inputPassword" required>
+                    <input type="password" class="form-control rounded-4" id="inputPassword" name="password" required>
                 </div>
             </div>
 

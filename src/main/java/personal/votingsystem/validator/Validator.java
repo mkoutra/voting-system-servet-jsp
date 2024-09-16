@@ -3,9 +3,9 @@ package personal.votingsystem.validator;
 import personal.votingsystem.dao.IUserDAO;
 import personal.votingsystem.dao.UserDAOImpl;
 import personal.votingsystem.dao.exceptions.UserDAOException;
-import personal.votingsystem.dto.ChangePasswordDTO;
+import personal.votingsystem.dto.old.ChangePasswordDTO;
 import personal.votingsystem.dto.UserInsertDTO;
-import personal.votingsystem.dto.UserLoginDTO;
+import personal.votingsystem.dto.old.UserLoginDTO;
 import personal.votingsystem.model.IHasFullName;
 import personal.votingsystem.service.IUserService;
 import personal.votingsystem.service.UserServiceImpl;
@@ -185,7 +185,7 @@ public class Validator {
 
     private static void validateDateOfBirth(Date dob, Map<String, String> errors) {
         if (dob == null) {
-            errors.put("dob", "Invalid date.");
+            errors.put("dateOfBirth", "Invalid date.");
             return;
         }
 
@@ -196,7 +196,7 @@ public class Validator {
 
         // Check if the dob is after 1900 and before the current date.
         if (dob.after(currentDate.getTime()) || dob.before(minDate.getTime())) {
-            errors.put("dob", "Invalid date.");
+            errors.put("dateOfBirth", "Invalid date.");
         }
     }
 }

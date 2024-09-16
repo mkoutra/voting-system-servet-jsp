@@ -35,6 +35,11 @@ public class DBUtil {
      * @throws SQLException
      */
     public static Connection getConnection() throws SQLException {
-        return ds.getConnection();
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            return ds.getConnection();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

@@ -1,4 +1,4 @@
-package personal.votingsystem.dto;
+package personal.votingsystem.dto.old;
 
 /**
  * Data Transfer Object (DTO) used for transferring candidate data along with their vote counts
