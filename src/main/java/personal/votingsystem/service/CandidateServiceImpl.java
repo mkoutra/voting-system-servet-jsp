@@ -2,10 +2,10 @@ package personal.votingsystem.service;
 
 import personal.votingsystem.dao.ICandidateDAO;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
-import personal.votingsystem.dto.old.CandidateInsertDTO;
-import personal.votingsystem.dto.old.CandidateReadOnlyDTO;
+import personal.votingsystem.dto.CandidateInsertDTO;
+import personal.votingsystem.dto.CandidateReadOnlyDTO;
 import personal.votingsystem.dto.old.CandidateUpdateDTO;
-import personal.votingsystem.dto.old.CandidatesWithVotesReadOnlyDTO;
+import personal.votingsystem.dto.CandidatesWithVotesReadOnlyDTO;
 import personal.votingsystem.model.Candidate;
 import personal.votingsystem.service.exceptions.CandidateIOException;
 import personal.votingsystem.service.exceptions.CandidateNotFoundException;

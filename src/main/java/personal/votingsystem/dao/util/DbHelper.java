@@ -6,7 +6,7 @@ import personal.votingsystem.dao.IUserDAO;
 import personal.votingsystem.dao.UserDAOImpl;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
 import personal.votingsystem.dao.exceptions.UserDAOException;
-import personal.votingsystem.dto.old.CandidateInsertDTO;
+import personal.votingsystem.dto.CandidateInsertDTO;
 import personal.votingsystem.dto.UserInsertDTO;
 import personal.votingsystem.service.CandidateServiceImpl;
 import personal.votingsystem.service.ICandidateService;

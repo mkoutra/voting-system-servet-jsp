@@ -28,14 +28,16 @@
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputFirstname" class="col-form-label fs-5">First Name</label>
-                    <input type="text" class="form-control rounded-4" id="inputFirstname" required>
+                    <input type="text" class="form-control rounded-4" id="inputFirstname" name="firstname" required>
+                    <span class="text-danger">${requestScope.firstnameErrorMessage}</span>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputLastname" class="col-form-label fs-5">Last name</label>
-                    <input type="text" class="form-control rounded-4" id="inputLastname" required>
+                    <input type="text" class="form-control rounded-4" id="inputLastname" name="lastname" required>
+                    <span class="text-danger">${requestScope.lastnameErrorMessage}</span>
                 </div>
             </div>
 
@@ -48,7 +50,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="" class="btn btn-outline-primary">Return</a>
+        <a href="${pageContext.request.contextPath}" class="btn btn-outline-primary">Return</a>
     </div>
 </main>
 

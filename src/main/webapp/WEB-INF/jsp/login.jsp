@@ -23,18 +23,18 @@
             </div>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="${pageContext.request.contextPath}/login">
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputUsername" class="col-form-label fs-5">Username</label>
-                    <input type="text" class="form-control rounded-4" id="inputUsername" name="username" required>
+                    <input type="text" class="form-control rounded-4" id="inputUsername" name="username" value="${requestScope.loginDTO.username}" required>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputPassword" class="col-form-label fs-5">Password</label>
-                    <input type="password" class="form-control rounded-4" id="inputPassword" name="password" required>
+                    <input type="password" class="form-control rounded-4" id="inputPassword" name="password" value="${requestScope.loginDTO.username}" required>
                 </div>
             </div>
 

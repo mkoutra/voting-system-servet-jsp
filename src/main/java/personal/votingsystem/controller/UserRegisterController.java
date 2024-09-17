@@ -19,7 +19,6 @@ import personal.votingsystem.validator.Validator;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -59,9 +58,11 @@ public class UserRegisterController extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/jsp/insert-user.jsp").forward(request, response);
             return;
         }
+
         try {
             User user = userService.insertUser(userInsertDTO);
             UserReadOnlyDTO userReadOnlyDTO = mapToUserReadOnlyDTO(user);
+
             request.setAttribute("userReadOnlyDTO", userReadOnlyDTO);
             request.getRequestDispatcher("/WEB-INF/jsp/insert-user-success.jsp").forward(request, response);
         } catch (UserDAOException e) {

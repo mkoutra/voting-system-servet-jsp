@@ -5,7 +5,7 @@ import personal.votingsystem.dao.UserDAOImpl;
 import personal.votingsystem.dao.exceptions.UserDAOException;
 import personal.votingsystem.dto.old.ChangePasswordDTO;
 import personal.votingsystem.dto.UserInsertDTO;
-import personal.votingsystem.dto.old.UserLoginDTO;
+import personal.votingsystem.dto.UserLoginDTO;
 import personal.votingsystem.model.IHasFullName;
 import personal.votingsystem.service.IUserService;
 import personal.votingsystem.service.UserServiceImpl;
