@@ -68,8 +68,8 @@ public class LoginController extends HttpServlet {
     }
 
     private UserLoginDTO createUserLoginDTO(HttpServletRequest request) {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter("username").trim();
+        String password = request.getParameter("password").trim();
         return new UserLoginDTO(username, password);
     }
 }

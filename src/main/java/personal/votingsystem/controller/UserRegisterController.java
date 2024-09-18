@@ -81,13 +81,13 @@ public class UserRegisterController extends HttpServlet {
      * @return          The {@link UserInsertDTO} object with the user information.
      */
     private UserInsertDTO createUserInsertDTO(HttpServletRequest request) {
-        String username = request.getParameter("username");
-        String email = request.getParameter("email");
+        String username = request.getParameter("username").trim();
+        String email = request.getParameter("email").trim();
         Date dateOfBirth = strToDate(request.getParameter("dateOfBirth"));
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
-        String password = request.getParameter("password");
-        String reEnteredPassword = request.getParameter("reEnteredPassword");
+        String firstname = request.getParameter("firstname").trim();
+        String lastname = request.getParameter("lastname").trim();
+        String password = request.getParameter("password").trim();
+        String reEnteredPassword = request.getParameter("reEnteredPassword").trim();
 
         return new UserInsertDTO(username, email, firstname, lastname, dateOfBirth, password, reEnteredPassword);
     }

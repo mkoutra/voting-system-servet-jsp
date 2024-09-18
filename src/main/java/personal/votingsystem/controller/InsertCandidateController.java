@@ -7,15 +7,11 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import personal.votingsystem.dao.CandidateDAOImpl;
 import personal.votingsystem.dao.ICandidateDAO;
-import personal.votingsystem.dao.IUserDAO;
-import personal.votingsystem.dao.UserDAOImpl;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
 import personal.votingsystem.dto.CandidateInsertDTO;
 import personal.votingsystem.dto.CandidateReadOnlyDTO;
 import personal.votingsystem.service.CandidateServiceImpl;
 import personal.votingsystem.service.ICandidateService;
-import personal.votingsystem.service.IUserService;
-import personal.votingsystem.service.UserServiceImpl;
 import personal.votingsystem.validator.Validator;
 
 import java.io.IOException;
@@ -50,14 +46,21 @@ public class InsertCandidateController extends HttpServlet {
 
         try {
             candidateService.insertCandidate(candidateInsertDTO);
+            CandidateReadOnlyDTO candidateReadOnlyDTO = mapToCandidateReadOnlyDTO(candidateInsertDTO);
+            request.setAttribute("candidateReadOnlyDTO", candidateReadOnlyDTO);
+            request.getRequestDispatcher("/WEB-INF/jsp/insert-candidate-success.jsp").forward(request, response);
         } catch (CandidateDAOException e) {
             e.printStackTrace();
         }
     }
 
+    private CandidateReadOnlyDTO mapToCandidateReadOnlyDTO(CandidateInsertDTO dto) {
+        return new CandidateReadOnlyDTO(null, dto.getFirstname(), dto.getLastname());
+    }
+
     private CandidateInsertDTO createCandidateInsertDTO(HttpServletRequest request) {
-        String firstname = request.getParameter("firstname");
-        String lastname = request.getParameter("lastname");
+        String firstname = request.getParameter("firstname").trim();
+        String lastname = request.getParameter("lastname").trim();
         return new CandidateInsertDTO(firstname, lastname);
     }
 }

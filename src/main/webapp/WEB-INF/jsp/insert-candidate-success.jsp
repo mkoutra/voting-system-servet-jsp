@@ -20,21 +20,12 @@
             <h1>Successful Candidate Insertion</h1>
         </div>
 
-<%--        <div class="row mb-3 justify-content-center fs-3">--%>
-<%--            <div class="col-6 text-end">--%>
-<%--                <span>ID:</span>--%>
-<%--            </div>--%>
-<%--            <div class="col-6 justify-content-start">--%>
-<%--                <span>${requestScope.candidateReadOnlyDTO.cid}</span>--%>
-<%--            </div>--%>
-<%--        </div>--%>
-
         <div class="row mb-3 justify-content-center fs-3">
             <div class="col-6 text-end">
                 <span>First Name:</span>
             </div>
             <div class="col-6 justify-content-start">
-                <span>${requestScope.candidateReadOnlyDTO.firstname}</span>>
+                <span>${requestScope.candidateReadOnlyDTO.firstname}</span>
             </div>
         </div>
 
