@@ -32,10 +32,11 @@ public interface ICandidateService {
      * Updates an existing candidate's details in the system.
      *
      * @param dto The {@link CandidateUpdateDTO} containing the updated candidate details.
+     * @return      The Candidate object that represents the updated candidate.
      * @throws CandidateNotFoundException If the candidate is not found in the system.
      * @throws CandidateDAOException      If an error occurs during the database operation.
      */
-    void updateCandidate(CandidateUpdateDTO dto) throws CandidateNotFoundException, CandidateDAOException;
+    Candidate updateCandidate(CandidateUpdateDTO dto) throws CandidateNotFoundException, CandidateDAOException;
 
     /**
      * Deletes a candidate from the system by their ID.

@@ -58,8 +58,10 @@
                         <td>${candidateDTO.lastname}</td>
                         <c:if test="${sessionScope.username eq 'admin'}">
                             <td>${candidateDTO.totalVotes}</td>
-                            <td><a href="" class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>
-                            <td><a href="" class="btn btn-danger"><i class="bi bi-x"></i></a></td>
+                            <td><a href="${pageContext.request.contextPath}/candidate/edit?cid=${candidateDTO.cid}&firstname=${candidateDTO.firstname}&lastname=${candidateDTO.lastname}"
+                                   class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>
+                            <td><a href="${pageContext.request.contextPath}/candidate/delete?cid=${candidateDTO.cid}"
+                                   class="btn btn-danger"><i class="bi bi-x"></i></a></td>
                         </c:if>
                         <td><a href="" class="btn btn-primary">Vote</a></td>
                     </tr>

@@ -1,4 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html;charset=UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,27 +20,30 @@
     <div class="container container-insertion border border-2 border-dark-subtle rounded-4 mt-4">
         <div class="row text-center mb-3">
             <h1 class="display-5">Edit Candidate</h1>
+            <span class="text-danger fs-4">${requestScope.errorMessage}</span>
         </div>
 
-        <form method="POST" action="">
+        <form method="POST" action="${pageContext.request.contextPath}/candidate/edit">
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label class="col-form-label fs-5">ID</label>
-                    <span class="form-control rounded-4 text-secondary">1</span>
+                    <input type="text" class="form-control rounded-4" name="cid" value="${requestScope.candidateUpdateDTO.cid}" readonly>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputFirstname" class="col-form-label fs-5">First Name</label>
-                    <input type="text" class="form-control rounded-4" id="inputFirstname" required>
+                    <input type="text" class="form-control rounded-4" id="inputFirstname" name="firstname" value="${requestScope.candidateUpdateDTO.firstname}" required>
+                    <span class="text-danger">${requestScope.firstnameErrorMessage}</span>
                 </div>
             </div>
 
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputLastname" class="col-form-label fs-5">Last name</label>
-                    <input type="text" class="form-control rounded-4" id="inputLastname" required>
+                    <input type="text" class="form-control rounded-4" id="inputLastname" name="lastname" value="${requestScope.candidateUpdateDTO.lastname}" required>
+                    <span class="text-danger">${requestScope.lastnameErrorMessage}</span>
                 </div>
             </div>
 
@@ -51,7 +56,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="" class="btn btn-outline-primary">Return</a>
+        <a href="${pageContext.request.contextPath}/voting" class="btn btn-outline-primary">Return</a>
     </div>
 </main>
 

@@ -60,7 +60,7 @@ public class LoginController extends HttpServlet {
 
     private void sendErrorMessage(HttpServletRequest request, HttpServletResponse response, UserLoginDTO userLoginDTO)
             throws ServletException, IOException {
-        String loginErrorMessage = "Invalid credentials";
+        String loginErrorMessage = "Invalid Credentials.";
 
         request.setAttribute("loginDTO", userLoginDTO);
         request.setAttribute("loginErrorMessage", loginErrorMessage);

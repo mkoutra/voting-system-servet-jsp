@@ -25,8 +25,10 @@ public class VotingController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Load candidates from the database with their votes.
         List<CandidatesWithVotesReadOnlyDTO> candidatesWithVotesReadOnlyDTOList = getCandidatesWithVotesDTOList();
         request.setAttribute("candidateWithVotesReadOnlyDTOs", candidatesWithVotesReadOnlyDTOList);
+
         request.getRequestDispatcher("/WEB-INF/jsp/voting.jsp").forward(request, response);
     }
 

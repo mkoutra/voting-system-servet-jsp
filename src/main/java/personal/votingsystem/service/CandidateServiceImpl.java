@@ -34,12 +34,13 @@ public class CandidateServiceImpl implements ICandidateService {
     }
 
     @Override
-    public void updateCandidate(CandidateUpdateDTO dto) throws CandidateNotFoundException, CandidateDAOException {
+    public Candidate updateCandidate(CandidateUpdateDTO dto) throws CandidateNotFoundException, CandidateDAOException {
         Candidate candidate = mapUpdateDTOToCandidate(dto);
         if (!candidateDAO.cidExists(candidate.getCid())) {
             throw new CandidateNotFoundException("Candidate with id: " + candidate.getCid() + " was not found");
         }
         candidateDAO.update(candidate);
+        return candidate;
     }
 
     @Override
