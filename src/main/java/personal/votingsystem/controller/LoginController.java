@@ -32,6 +32,7 @@ public class LoginController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         UserLoginDTO userLoginDTO = createUserLoginDTO(request);
         Map<String, String> errors;
+        Boolean hasAlreadyVoted = false;
 
         // Validation
         errors = Validator.validate(userLoginDTO);
@@ -44,10 +45,14 @@ public class LoginController extends HttpServlet {
             // Authentication
             boolean isAuthenticated = false;
             isAuthenticated = userService.authenticateUser(userLoginDTO.getUsername(), userLoginDTO.getPassword());
+
             if (isAuthenticated) {
                 // Write to session object
                 HttpSession session = request.getSession(false);
                 session.setAttribute("username", userLoginDTO.getUsername());
+
+                hasAlreadyVoted = userService.checkIfUserHasVoted(userLoginDTO.getUsername());
+                session.setAttribute("hasVoted", hasAlreadyVoted);
 
                 response.sendRedirect(request.getContextPath() + "/voting");
             } else {

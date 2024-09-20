@@ -9,7 +9,7 @@ import personal.votingsystem.dao.CandidateDAOImpl;
 import personal.votingsystem.dao.ICandidateDAO;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
 import personal.votingsystem.dto.CandidateReadOnlyDTO;
-import personal.votingsystem.dto.old.CandidateUpdateDTO;
+import personal.votingsystem.dto.CandidateUpdateDTO;
 import personal.votingsystem.model.Candidate;
 import personal.votingsystem.service.CandidateServiceImpl;
 import personal.votingsystem.service.ICandidateService;
@@ -19,7 +19,7 @@ import personal.votingsystem.validator.Validator;
 import java.io.IOException;
 import java.util.Map;
 
-@WebServlet("/candidate/edit")
+@WebServlet("/voting/candidate/edit")
 public class CandidateEditController extends HttpServlet {
     private final ICandidateDAO candidateDAO = new CandidateDAOImpl();
     private final ICandidateService candidateService = new CandidateServiceImpl(candidateDAO);

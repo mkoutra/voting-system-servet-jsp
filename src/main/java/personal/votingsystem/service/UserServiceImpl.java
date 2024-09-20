@@ -6,10 +6,8 @@ import personal.votingsystem.dao.ICandidateDAO;
 import personal.votingsystem.dao.IUserDAO;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
 import personal.votingsystem.dao.exceptions.UserDAOException;
-import personal.votingsystem.dto.CandidateReadOnlyDTO;
-import personal.votingsystem.dto.old.ChangePasswordDTO;
+import personal.votingsystem.dto.ChangePasswordDTO;
 import personal.votingsystem.dto.UserInsertDTO;
-import personal.votingsystem.dto.UserReadOnlyDTO;
 import personal.votingsystem.model.User;
 import personal.votingsystem.service.exceptions.CandidateNotFoundException;
 import personal.votingsystem.service.exceptions.UserNotFoundException;
@@ -70,20 +68,20 @@ public class UserServiceImpl implements IUserService {
     }
 
     @Override
-    public void voteACandidate(UserReadOnlyDTO userReadOnlyDTO, CandidateReadOnlyDTO candidateReadOnlyDTO)
+    public void voteACandidate(String username, Integer cid)
             throws CandidateNotFoundException, UserNotFoundException, UserDAOException, CandidateDAOException {
         ICandidateDAO candidateDAO = new CandidateDAOImpl();
         try {
-            if (!userDAO.usernameExists(userReadOnlyDTO.getUsername())) {
-                throw new UserNotFoundException("User: " + userReadOnlyDTO.getUsername() + " does not exist.");
+            if (!userDAO.usernameExists(username)) {
+                throw new UserNotFoundException("User: " + username + " does not exist.");
             }
-            if (!candidateDAO.cidExists(candidateReadOnlyDTO.getCid())) {
-                throw new CandidateNotFoundException("Candidate with id: " + candidateReadOnlyDTO.getCid() + " does not exist.");
+            if (!candidateDAO.cidExists(cid)) {
+                throw new CandidateNotFoundException("Candidate with id: " + cid + " does not exist.");
             }
 
-            User voter = userDAO.getByUsername(userReadOnlyDTO.getUsername());
+            User voter = userDAO.getByUsername(username);
             voter.setHasVoted(1);
-            voter.setVotedCid(candidateReadOnlyDTO.getCid());
+            voter.setVotedCid(cid);
             userDAO.update(voter);
         } catch (CandidateDAOException | UserDAOException e) {
             e.printStackTrace();

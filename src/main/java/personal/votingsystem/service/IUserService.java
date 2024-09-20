@@ -2,9 +2,7 @@ package personal.votingsystem.service;
 
 import personal.votingsystem.dao.exceptions.UserDAOException;
 import personal.votingsystem.dao.exceptions.CandidateDAOException;
-import personal.votingsystem.dto.CandidateReadOnlyDTO;
-import personal.votingsystem.dto.old.ChangePasswordDTO;
-import personal.votingsystem.dto.UserReadOnlyDTO;
+import personal.votingsystem.dto.ChangePasswordDTO;
 import personal.votingsystem.service.exceptions.UserNotFoundException;
 import personal.votingsystem.service.exceptions.CandidateNotFoundException;
 
@@ -32,14 +30,14 @@ public interface IUserService {
     /**
      * Registers a vote for a specific candidate by a user.
      *
-     * @param userReadOnlyDTO     The {@link UserReadOnlyDTO} representing the user who is voting.
-     * @param candidateReadOnlyDTO The {@link CandidateReadOnlyDTO} representing the candidate being voted for.
+     * @param username                    The username of the user who is voting.
+     * @param cid                         The id of the candidate being voted for.
      * @throws CandidateNotFoundException If the candidate is not found in the system.
      * @throws UserNotFoundException      If the user is not found in the system.
      * @throws UserDAOException           If an error occurs during the database operation for the user.
      * @throws CandidateDAOException      If an error occurs during the database operation for the candidate.
      */
-    void voteACandidate(UserReadOnlyDTO userReadOnlyDTO, CandidateReadOnlyDTO candidateReadOnlyDTO)
+    void voteACandidate(String username, Integer cid)
             throws CandidateNotFoundException, UserNotFoundException, UserDAOException, CandidateDAOException;
 
     /**

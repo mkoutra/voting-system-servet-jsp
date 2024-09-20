@@ -24,7 +24,7 @@
         </div>
 
         <div class="row justify-content-end mb-1">
-            <a href="" class="col-sm-2 btn btn-success">Save Results</a>
+            <a href="" class="col-sm-2 btn btn-success"><i class="bi bi-download"></i> Save results</a>
         </div>
 
         <div class="row justify-content-end mb-4">
@@ -33,6 +33,8 @@
 
         <div class="row text-center mb-3">
             <h1>Candidates List</h1>
+            <span class="text-danger fs-4">${requestScope.errorMessage}</span>
+            <span class="text-success fs-4">${requestScope.successMessage}</span>
         </div>
 
         <div class="table-responsive">
@@ -58,12 +60,18 @@
                         <td>${candidateDTO.lastname}</td>
                         <c:if test="${sessionScope.username eq 'admin'}">
                             <td>${candidateDTO.totalVotes}</td>
-                            <td><a href="${pageContext.request.contextPath}/candidate/edit?cid=${candidateDTO.cid}&firstname=${candidateDTO.firstname}&lastname=${candidateDTO.lastname}"
+                            <td><a href="${pageContext.request.contextPath}/voting/candidate/edit?cid=${candidateDTO.cid}&firstname=${candidateDTO.firstname}&lastname=${candidateDTO.lastname}"
                                    class="btn btn-success"><i class="bi bi-pencil-square"></i></a></td>
-                            <td><a href="${pageContext.request.contextPath}/candidate/delete?cid=${candidateDTO.cid}"
+                            <td><a href="${pageContext.request.contextPath}/voting/candidate/delete?cid=${candidateDTO.cid}"
                                    class="btn btn-danger"><i class="bi bi-x"></i></a></td>
                         </c:if>
-                        <td><a href="" class="btn btn-primary">Vote</a></td>
+                        <%-- Check if the user has voted or not to activate voting button --%>
+                        <c:if test="${sessionScope.hasVoted == false}">
+                            <td><a href="${pageContext.request.contextPath}/voting/candidate/vote?cid=${candidateDTO.cid}" class="btn btn-primary">Vote</a></td>
+                        </c:if>
+                        <c:if test="${sessionScope.hasVoted == true}">
+                            <td><a class="btn btn-primary disabled" aria-disabled="true">Vote</a></td>
+                        </c:if>
                     </tr>
                 </c:forEach>
                 </tbody>

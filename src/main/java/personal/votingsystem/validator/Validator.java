@@ -3,7 +3,7 @@ package personal.votingsystem.validator;
 import personal.votingsystem.dao.IUserDAO;
 import personal.votingsystem.dao.UserDAOImpl;
 import personal.votingsystem.dao.exceptions.UserDAOException;
-import personal.votingsystem.dto.old.ChangePasswordDTO;
+import personal.votingsystem.dto.ChangePasswordDTO;
 import personal.votingsystem.dto.UserInsertDTO;
 import personal.votingsystem.dto.UserLoginDTO;
 import personal.votingsystem.model.IHasFullName;

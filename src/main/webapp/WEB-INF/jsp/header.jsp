@@ -27,11 +27,12 @@
                                 <a class="nav-link dropdown-toggle" href="" role="button" data-bs-toggle="dropdown"
                                    aria-expanded="false">
                                     <img class="" src="${pageContext.request.contextPath}/img/userIcon_x_small.png" alt="Username logo">
-                                    <span>Username</span>
+                                    <span>${sessionScope.username}</span>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item fs-5" href="${pageContext.request.contextPath}/change_password">Change password</a></li>
-                                    <li><a class="dropdown-item fs-5" href="${pageContext.request.contextPath}/logout">Logout</a></li>
+                                    <li><a class="dropdown-item fs-5" href="${pageContext.request.contextPath}/user/view-vote">View vote</a></li>
+                                    <li><a class="dropdown-item fs-5" href="${pageContext.request.contextPath}/user/change-password">Change password</a></li>
+                                    <li><a class="dropdown-item fs-5" href="${pageContext.request.contextPath}/user/logout">Logout</a></li>
                                 </ul>
                             </li>
                         </ul>
