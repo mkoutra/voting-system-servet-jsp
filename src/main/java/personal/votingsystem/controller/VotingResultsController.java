@@ -19,8 +19,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
-@WebServlet("/voting")
-public class VotingController extends HttpServlet {
+@WebServlet("/voting/results")
+public class VotingResultsController extends HttpServlet {
     private final ICandidateDAO candidateDAO = new CandidateDAOImpl();
     private final ICandidateService candidateService = new CandidateServiceImpl(candidateDAO);
 
@@ -30,7 +30,7 @@ public class VotingController extends HttpServlet {
         List<CandidatesWithVotesReadOnlyDTO> candidatesWithVotesReadOnlyDTOList = getCandidatesWithVotesDTOList();
         request.setAttribute("candidateWithVotesReadOnlyDTOs", candidatesWithVotesReadOnlyDTOList);
 
-        request.getRequestDispatcher("/WEB-INF/jsp/voting.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/jsp/voting-results.jsp").forward(request, response);
     }
 
     private List<CandidatesWithVotesReadOnlyDTO> getCandidatesWithVotesDTOList() {
@@ -50,7 +50,7 @@ public class VotingController extends HttpServlet {
             }
 
             // Sort list
-            candidatesWithVotesReadOnlyDTOList.sort(Comparator.comparing(CandidatesWithVotesReadOnlyDTO::getCid));
+            candidatesWithVotesReadOnlyDTOList.sort(Comparator.comparing(CandidatesWithVotesReadOnlyDTO::getTotalVotes).reversed());
 
             return candidatesWithVotesReadOnlyDTOList;
         } catch (CandidateDAOException e) {

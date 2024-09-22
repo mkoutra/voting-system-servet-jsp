@@ -50,7 +50,7 @@
     </div>
 
     <div class="text-center mt-4">
-        <a href="${pageContext.request.contextPath}" class="btn btn-outline-primary">Return</a>
+        <a href="${pageContext.request.contextPath}/voting" class="btn btn-outline-primary">Return</a>
     </div>
 </main>
 

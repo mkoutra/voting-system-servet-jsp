@@ -23,7 +23,7 @@
         <h1 class="text-center">Welcome to voting system application.</h1>
 
         <div class="mt-4">
-            <a href="${pageContext.request.contextPath}/login" type="button" class="btn btn-success btn-lg">Enter</a>
+            <a href="${pageContext.request.contextPath}/login" type="button" class="btn btn-primary btn-lg">Enter</a>
         </div>
     </div>
 </main>
