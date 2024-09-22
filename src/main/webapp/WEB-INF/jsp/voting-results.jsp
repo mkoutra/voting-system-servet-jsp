@@ -20,7 +20,9 @@
 <main>
     <div class="container mt-4">
         <div class="row justify-content-end mb-1">
-            <a href="" class="col-sm-2 btn btn-outline-primary"><i class="bi bi-download"></i> Save</a>
+            <a href="${pageContext.request.contextPath}/voting/save-results" class="col-sm-2 btn btn-outline-primary">
+                <i class="bi bi-download"></i> Save
+            </a>
         </div>
 
         <div class="row text-center mb-3">
