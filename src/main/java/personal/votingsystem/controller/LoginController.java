@@ -25,6 +25,15 @@ public class LoginController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Create the special "admin user" if it does not exist.
+        try {
+            if (!userService.userExistsByUsername("admin")) {
+                userService.createAdminAccount();
+            }
+        } catch (UserDAOException e) {
+            request.setAttribute("loginErrorMessage", "Error in creating admin");
+        }
+
         request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
     }
 
