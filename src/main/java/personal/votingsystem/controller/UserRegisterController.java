@@ -23,7 +23,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet("/users/register")
+@WebServlet("/register")
 public class UserRegisterController extends HttpServlet {
     private final IUserDAO userDAO = new UserDAOImpl();
     private final IUserService userService = new UserServiceImpl(userDAO);

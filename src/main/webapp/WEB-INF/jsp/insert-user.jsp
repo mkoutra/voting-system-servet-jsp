@@ -24,7 +24,7 @@
             <h1 class="display-5">Create an Account</h1>
         </div>
 
-        <form method="POST" action="${pageContext.request.contextPath}/users/register">
+        <form method="POST" action="${pageContext.request.contextPath}/register">
             <div class="row mb-3 justify-content-center">
                 <div class="col-sm-10">
                     <label for="inputUsername" class="col-form-label fs-5">Username</label>

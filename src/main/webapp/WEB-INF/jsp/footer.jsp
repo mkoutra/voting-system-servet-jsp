@@ -12,7 +12,7 @@
 <body>
 <footer class="mt-auto border border-top border-1 border-black">
     <div class="text-center my-1 d-flex flex-column justify-content-center">
-        <span class="fs-5">&copy; Michalis Koutrakis 2024</span>
+        <span class="fs-5">&copy; Michalis Koutrakis, 2024</span>
         <div class="mb-1">
             <a href="https://github.com/mkoutra" class="fs-5 text-black me-3"><i class="bi bi-github"></i></a>
             <a href="https://www.linkedin.com/in/michalis-koutrakis/" class="fs-5 text-black me-3"><i class="bi bi-linkedin"></i></a>

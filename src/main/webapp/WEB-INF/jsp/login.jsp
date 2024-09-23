@@ -48,7 +48,7 @@
         <div class="row text-center">
             <div class="col-sm gy-1 justify-content-center">
                 <span class="fs-5">If you don't have an account:</span><br>
-                <a href="${pageContext.request.contextPath}/users/register" type="button"
+                <a href="${pageContext.request.contextPath}/register" type="button"
                    class="btn btn-secondary rounded-pill my-3 w-25">Sign up</a>
             </div>
         </div>

@@ -19,9 +19,11 @@
 
 <main>
     <div class="container container-voting mt-4">
-        <div class="row justify-content-end mb-1">
-            <a href="${pageContext.request.contextPath}/voting/candidate/insert" class="col-sm-2 btn btn-outline-primary">Insert Candidate</a>
-        </div>
+        <c:if test="${sessionScope.username eq 'admin'}">
+            <div class="row justify-content-end mb-1">
+                <a href="${pageContext.request.contextPath}/voting/candidate/insert" class="col-sm-2 btn btn-outline-primary">Insert Candidate</a>
+            </div>
+        </c:if>
 
         <div class="row justify-content-end mb-4">
             <a href="${pageContext.request.contextPath}/voting/results" class="col-sm-2 btn btn-outline-primary">Results</a>
