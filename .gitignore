@@ -1,6 +1,6 @@
 .idea/
 TODO.txt
-./Dockerfile
+Dockerfile
 
 target/
 !.mvn/wrapper/maven-wrapper.jar
