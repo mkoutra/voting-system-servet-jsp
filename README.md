@@ -1,8 +1,7 @@
 # Voting System
-This Jakarta EE 10, application using JSP. It streamlines the management and voting processes for candidates.
-It allows an admin user to create, edit, or delete candidates while enabling regular users
-to cast a single vote for their preferred candidate. Additionally, users can view the voting
-results and export them in .csv format, ensuring easy data management and analysis.
+This Jakarta EE 10 application, built with JSP, streamlines candidate management and voting.
+Admins can create, edit, or delete candidates, while users can cast a single vote.
+Voting results can be viewed and exported in .csv format for easy analysis.
 
 - **User registration**: Allows users to create an account with basic details like username, password, and profile information.
 - **Login and Logout**: Users can securely log in and out of the system using their credentials.
@@ -11,11 +10,12 @@ results and export them in .csv format, ensuring easy data management and analys
 - **View and Save Voting Results**: Users can view results and save them as csv files.
 
 ## Admin user
-- A special user with the username admin is automatically created at startup if it does not already exist.
-- The `admin` user is the only one who can add new candidates to the system.
+- A default user with the username admin is automatically created at startup if it doesn't already exist.
+- **Only the admin user can add new candidates to the system.**
+- The default password is **admin**, but it can be changed either in the
+  `config.properties` file or through the "Change Password" option within the app.
 
 ## Tools and Technologies
-
 - **Java 17**
 - **MySQL 8.0.39**
 - **Tomcat 10.1.25**
@@ -68,11 +68,11 @@ If you have installed Java 17 or above in your system, and you have an MySQL ser
 ### Running the Application
 
 After building the project, a `.war` file will be generated in the `target/` directory.
-To run the application, **copy the `.war` file to the `webapps/` directory of your tomcat directory**:
+To run the application, copy the `.war` file to the `webapps/` folder in your Tomcat directory.
 
-To use the voting app, open your browser and visit: http://localhost:8080/voting-system/
+To access the voting app, open your browser and go to: http://localhost:8080/voting-system/
 
-**Make sure to prepare the database **before** executing the application.**
+**Important**: Ensure the database is set up **before** running the application.
 
 ## Database Information
 
@@ -105,49 +105,6 @@ Docker and run the `create_database.sql` script.
       ```
 
 **Ensure the MySQL server is running before executing the application JAR file.**
-
-### Tables
-
-#### `candidates` Table
-
-- **Purpose:** Stores candidate details.
-- **Columns:**
-    - `cid`: INT, auto-incremented primary key for candidate identification.
-    - `firstname`: VARCHAR(45), the first name of the candidate.
-    - `lastname`: VARCHAR(45), the last name of the candidate.
-- **Indexes:**
-    - `cand_lastname_idx`: Index on the `lastname` column to speed up search queries.
-- **Engine:** InnoDB for reliable transaction support.
-
-#### `users` Table
-
-- **Purpose:** Manages user information and voting details.
-- **Columns:**
-    - `uid`: INT, auto-incremented primary key for user identification.
-    - `username`: VARCHAR(45), unique username for login.
-    - `password`: CHAR(60), password hash for user authentication.
-    - `email`: VARCHAR(45), user’s email address.
-    - `firstname`: VARCHAR(45), user’s first name.
-    - `lastname`: VARCHAR(45), user’s last name.
-    - `dob`: DATE, date of birth.
-    - `hasVoted`: TINYINT, flag indicating whether the user has voted.
-    - `votedCid`: INT, foreign key linking to the `cid` in the `candidates` table, representing the candidate the user voted for.
-- **Indexes:**
-    - `fk_users_cand_id_idx`: Index on `votedCid` for faster joins and lookups.
-    - `username_idx`: Index on `username` for quick user lookups.
-    - `user_lastname_idx`: Index on `lastname` for efficient searches.
-    - `email_idx`: Index on `email` to optimize email-based queries.
-- **Foreign Key Constraint:**
-    - `fk_users_cand_id`: Ensures referential integrity between the `users` and `candidates` tables.
-
-### Encoding
-The database uses UTF-8 character encoding.
-
-### User and Permissions
-- If the database was created using **Docker** the root password was set to `password`.
-  You are **strongly advised** to replace this password in the `Dockerfile`.
-- Creates a MySQL user `votingUser` with full privileges on `votingDB` and password `voting`. 
-  As mentioned above, you are **strongly advised** to replace the password and update the `config.properties` accordingly.
 
 ## Application Preview
 
